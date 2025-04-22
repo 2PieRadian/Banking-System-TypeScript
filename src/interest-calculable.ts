@@ -1,0 +1,3 @@
+interface InterestCalculable {
+  calculateInterest(): number;
+}
