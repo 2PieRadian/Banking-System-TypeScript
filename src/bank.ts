@@ -1,7 +1,7 @@
 import { Account } from "./account";
 import { CurrentAccount } from "./current-account";
 import { FixedDepositAccount } from "./fixed-deposit-account";
-import { SavingsAccount } from "./savings-acount";
+import { SavingsAccount } from "./savings-account";
 
 export class Bank {
   private accounts: Map<string, Account>;
@@ -12,7 +12,7 @@ export class Bank {
   createAccount(
     accountHolderName: string,
     accountType: string,
-    years: number
+    years?: number
   ): Account {
     let account: Account;
 
@@ -24,7 +24,7 @@ export class Bank {
         account = new CurrentAccount(accountHolderName);
         break;
       case "FIXED_DEPOSIT":
-        account = new FixedDepositAccount(accountHolderName, years);
+        account = new FixedDepositAccount(accountHolderName, years ?? 1);
         break;
       default:
         throw new Error("Invalid account type.");
@@ -32,5 +32,9 @@ export class Bank {
 
     this.accounts.set(account.getAccountNumber(), account);
     return account;
+  }
+
+  getAccount(accountNumber: string): Account | undefined {
+    return this.accounts.get(accountNumber);
   }
 }

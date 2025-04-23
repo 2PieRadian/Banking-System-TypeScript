@@ -1,6 +1,7 @@
 import { Account } from "./account";
+import { Bank } from "./bank";
 import { FixedDepositAccount } from "./fixed-deposit-account";
-import { SavingsAccount } from "./savings-acount";
+import { SavingsAccount } from "./savings-account";
 
 /*
 -------------------- Savings Account --------------------
@@ -30,5 +31,16 @@ setInterval(() => {
       (fd as FixedDepositAccount).calculateInterest()
   );
 }, 1000);
+---------------------------------------------------------------
+*/
+
+/*
+-------------------- Bank Class --------------------
+const bank: Bank = new Bank();
+console.log(bank);
+const x = bank.createAccount("Raman", "SAVINGS");
+console.log(bank);
+bank.getAccount(x.getAccountNumber())?.deposit(1000);
+console.log(bank);
 ---------------------------------------------------------------
 */
