@@ -34,13 +34,15 @@ setInterval(() => {
 ---------------------------------------------------------------
 */
 
-/*
--------------------- Bank Class --------------------
+// /*
+// -------------------- Bank Class --------------------
 const bank: Bank = new Bank();
 console.log(bank);
 const x = bank.createAccount("Raman", "SAVINGS");
 console.log(bank);
 bank.getAccount(x.getAccountNumber())?.deposit(1000);
 console.log(bank);
----------------------------------------------------------------
-*/
+
+console.log(bank.getAccount(x.getAccountNumber())?.getTransactionHistory());
+// ---------------------------------------------------------------
+// */
