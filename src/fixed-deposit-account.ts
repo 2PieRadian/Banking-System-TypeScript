@@ -1,6 +1,6 @@
 import { Account } from "./account";
 
-export class FixedDepositAccount extends Account implements InterestCalculable {
+export class FixedDepositAccount extends Account {
   private startDate: Date;
   private maturityDate: Date;
   private interestRate: number;

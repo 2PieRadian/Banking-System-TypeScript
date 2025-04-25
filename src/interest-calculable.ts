@@ -1,3 +1,3 @@
 interface InterestCalculable {
-  calculateInterest(): number;
+  calculateInterest(years?: number): number;
 }

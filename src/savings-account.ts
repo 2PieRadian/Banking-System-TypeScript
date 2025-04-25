@@ -1,6 +1,7 @@
 import { Account } from "./account";
 
-export class SavingsAccount extends Account {
+export class SavingsAccount extends Account implements InterestCalculable {
+  private static interestRate = 0.04;
   constructor(accountHolder: string) {
     super(accountHolder);
   }
@@ -21,5 +22,10 @@ export class SavingsAccount extends Account {
       timestamp: new Date(),
       description: `Widthdrawing an amount of: ${amount} Rs from account no ${this.accountNumber}`,
     });
+  }
+
+  calculateInterest(years: number): number {
+    if (years < 0) throw new Error("Invalid Time Period");
+    return this.balance * SavingsAccount.interestRate * years;
   }
 }
